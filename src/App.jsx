@@ -1,15 +1,9 @@
-import { Component } from 'react';
-import Count from './components/count';
-import Person from './components/person';
+import Demo from './components/Demo';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Count />
-        <hr />
-        <Person />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+      <Demo />
+    </div>
+  );
 }
