@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 
 export default function Demo() {
   const [count, setCount] = useState(0);
@@ -8,10 +8,28 @@ export default function Demo() {
     setCount((count) => count + 1);
   }
 
+  useEffect(() => {
+    console.log('hi');
+
+    return () => {
+      console.log('component will unmount');
+    };
+  }, [count]);
+
+  const inputText = useRef();
+
+  function showInputText() {
+    alert(inputText.current.value);
+  }
+
   return (
-    <div>
+    <Fragment>
       <h2>sum: {count}</h2>
       <button onClick={add}>+1</button>
-    </div>
+      <br />
+      <br />
+      <input type="text" ref={inputText} />
+      <button onClick={showInputText}>文字內容</button>
+    </Fragment>
   );
 }
